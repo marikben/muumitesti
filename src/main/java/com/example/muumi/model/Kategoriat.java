@@ -22,6 +22,10 @@ public class Kategoriat {
 	public Long getKategoriaid() {
 		return kategoriaid;
 	}
+	public Kategoriat(String name) {
+		super();
+		Name = name;
+	}
 	public void setKategoriaid(Long kategoria) {
 		this.kategoriaid = kategoria;
 	}
