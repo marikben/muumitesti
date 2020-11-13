@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<link type="text/css" rel="stylesheet" th:href="@{/styles/cssandjs/muumi.css}" />
+<title>Server Programming withSpring Boot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h4 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h4>
+<form th:action="@{/logout}"method="post"><input type="submit"value="Sign Out"/></form>
+<main>
+<h3>Muumiastiasto</h3>
+<td>Nimi</td>
+<td>Kategoria</td>
+<tr th:each= "muumi : ${muumis}"><br>
+<td  th:text="${  muumi.Nimi}"></td>
+<td th:text="${muumi.kategoria}"></td>
+<a th:href="@{/edit/{id}(id=${muumi.id})}">Edit</a>
+<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${muumi.id})}">Delete</a></td>
+</tr><br>
+<a href="/add" class="btn btn -primary">Lisää uusi</a>
+</main>
+</body>
+</html>
