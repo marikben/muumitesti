@@ -11,5 +11,22 @@ body {
     color: white;
     text-align: center;
   }
+img {
+float: left;
+width: 10%;
+height: 10%;
+}
+.otsikot p {
+font-family: 'Arial';
+vertical-align: top;
+display: inline-block;
+margin-left: 50px;
+}
 
- 
+.astiat {
+display: grid;
+grid-template-columns: 100%;
+}
+.edit a{
+margin-left: 600px;
+}
