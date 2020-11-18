@@ -12,12 +12,12 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 @Entity
-
 public class Muumi {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String Nimi;
+	private String nimi, url;
+
 	@ManyToOne
 	@JoinColumn(name="kategoria")
 	private Kategoriat kategoria;
@@ -29,7 +29,16 @@ public class Muumi {
 	}
 	public Muumi() {}
 	public Muumi(String Nimi) {
-		this.Nimi = Nimi;
+		this.nimi = Nimi;
+	}
+	public Muumi(String nimi,  String url) {
+		this.nimi = nimi;
+		this.url = url;
+	}
+	public Muumi(String nimi, Kategoriat kat, String url) {
+		this.nimi = nimi;
+		this.kategoria = kat;
+		this.url = url;
 	}
 	public Long getId() {
 		return id;
@@ -38,14 +47,19 @@ public class Muumi {
 		this.id = id;
 	}
 	public String getNimi() {
-		return Nimi;
+		return nimi;
 	}
 	public void setNimi(String nimi) {
-		Nimi = nimi;
+		this.nimi = nimi;
 	}
-	
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
 	@Override
 	public String toString() {
-		return "Muumi [id=" + id + ", Nimi=" + Nimi + "]";
+		return "Muumi [id=" + id + ", Nimi=" + nimi + "]";
 	}
 }
