@@ -16,7 +16,7 @@ public class Muumi {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String nimi, url;
+	private String Nimi, url;
 
 	@ManyToOne
 	@JoinColumn(name="kategoria")
@@ -29,14 +29,14 @@ public class Muumi {
 	}
 	public Muumi() {}
 	public Muumi(String Nimi) {
-		this.nimi = Nimi;
+		this.Nimi = Nimi;
 	}
 	public Muumi(String nimi,  String url) {
-		this.nimi = nimi;
+		this.Nimi = nimi;
 		this.url = url;
 	}
 	public Muumi(String nimi, Kategoriat kat, String url) {
-		this.nimi = nimi;
+		this.Nimi = nimi;
 		this.kategoria = kat;
 		this.url = url;
 	}
@@ -47,10 +47,10 @@ public class Muumi {
 		this.id = id;
 	}
 	public String getNimi() {
-		return nimi;
+		return Nimi;
 	}
 	public void setNimi(String nimi) {
-		this.nimi = nimi;
+		this.Nimi = nimi;
 	}
 	public String getUrl() {
 		return url;
@@ -60,6 +60,6 @@ public class Muumi {
 	}
 	@Override
 	public String toString() {
-		return "Muumi [id=" + id + ", Nimi=" + nimi + "]";
+		return "Muumi [id=" + id + ", Nimi=" + Nimi + "]";
 	}
 }
