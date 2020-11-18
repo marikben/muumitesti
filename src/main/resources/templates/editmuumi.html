@@ -7,7 +7,7 @@
 </head>
 <body>
 <main>
-<h3>Lisää Muumi-astia</h1>
+<h3>Muokkaa Muumi-astiaa</h1>
 <div>
 <form th:object="${muumi}" th:action="@{../save}" action="#" method="post">
 <input type="hidden" th:field="*{id}" class="form-control"/>
@@ -15,8 +15,10 @@
 <select id="katlist" th:field="*{kategoria}" class="form-control">
 			<option th:each="kategoria: ${kategoriat}"th:value="${kategoria.kategoriaid}"
 			 th:text="${kategoria.Name}"></option>
-			</select>	
-<input type="submit" class="btn btn-success" value="Save"></input>
+			</select>
+			<label for = "url">Kuvan osoite: </label><input type="text" id="kuva" th:field="*{url}"/>	
+<input type="submit" class="btn btn-success" value="Tallenna"></input><br>
+<form th:action="@{/muumilist}"method="get"><input type="submit"value="Edellinen"/></form>
 </form>
 </div>
 </main>
