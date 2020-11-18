@@ -14,11 +14,13 @@
 <select id="katlist" th:field="*{kategoria}" class="form-control">
 			<option th:each="kategoria: ${kategoriat}"th:value="${kategoria.kategoriaid}"
 			 th:text="${kategoria.Name}"></option>
-			</select>	
+			</select><br>
+			<label for = "url">Kuvan osoite: </label><input type="text" id="kuva" th:field="*{url}"/><br>
 			<div style="clear: both; display: block; height: 10px;"></div>
 						<div style="clear: both; display: block; height: 10px;"></div>
 
-			<input class="btn btn-success" type="submit" value="Save"></input>
+			<input class="btn btn-success" type="submit" value="Lisää astia"></input><br>
+			<form th:action="@{/login}"method="get"><input type="submit"value="Edellinen"/></form>
 			</form>
 </div>
 </body>
