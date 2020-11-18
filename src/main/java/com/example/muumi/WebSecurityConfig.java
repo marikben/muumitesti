@@ -21,19 +21,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
     	http
-        .authorizeRequests().antMatchers("/css/**","rescources/**").permitAll() 
+        .authorizeRequests().antMatchers("css/**","rescources/**").permitAll()
         .and()
         .authorizeRequests().antMatchers("/signup", "/saveuser").permitAll()
         .and()
         .authorizeRequests()
           .anyRequest().authenticated()
           .and()
-      .formLogin()
-          .defaultSuccessUrl("/muumilist", true)
-          .permitAll()
-          .and()
-      .logout()
-          .permitAll();
+          .formLogin()
+          	.loginPage("/login")
+              .defaultSuccessUrl("/muumilist", true)
+              .permitAll();
     }
     
     @Autowired
