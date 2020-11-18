@@ -13,7 +13,7 @@
 <label for="katlist">Kategoria</label>
 <select id="katlist" th:field="*{kategoria}" class="form-control">
 			<option th:each="kategoria: ${kategoriat}"th:value="${kategoria.kategoriaid}"
-			 th:text="${kategoria.name}"></option>
+			 th:text="${kategoria.Name}"></option>
 			</select><br>
 			<label for = "url">Kuvan osoite: </label><input type="text" id="kuva" th:field="*{url}"/><br>
 			<div style="clear: both; display: block; height: 10px;"></div>
