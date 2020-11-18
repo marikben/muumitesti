@@ -14,6 +14,7 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id", nullable= false, updatable= false)
 	private Long id;
+	//Creates an unique username
 	@Column(name= "username", nullable= false, unique = true)
 	private String username;
 	@Column(name= "password", nullable= false)
