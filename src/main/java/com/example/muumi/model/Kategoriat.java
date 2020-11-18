@@ -14,7 +14,7 @@ public class Kategoriat {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long kategoriaid;
-	private String name;
+	private String Name;
 	
 	@OneToMany (cascade=CascadeType.ALL,mappedBy="kategoriat")
 	
@@ -24,21 +24,21 @@ public class Kategoriat {
 	}
 	public Kategoriat(String name) {
 		super();
-		name = name;
+		Name = name;
 	}
 	public void setKategoriaid(Long kategoria) {
 		this.kategoriaid = kategoria;
 	}
 	public Kategoriat() {};
 	public String getName() {
-		return name;
+		return Name;
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.Name = name;
 	}
 	@Override
 	public String toString() {
-		return name;
+		return Name;
 	}
 	
 	
