@@ -6,7 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface KategoriaRepository extends CrudRepository <Kategoriat,Long>{
 
-	 List<Kategoriat> findByName(String name);
-
 
 }
