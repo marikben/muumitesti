@@ -19,15 +19,17 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 </div>
 <div class="astiat">
 <tr th:each= "muumi : ${muumis}"><br>
-<!-- IF CUSTOMER IS ANONYMOUS -->
+<!-- IF AN URL FOR AN IMAGE EXISTS AND IS NEITHER '' OR NULL -->
 <div th:if="${muumi.url!='' and muumi.url!=NULL}">
    <div><img th:src="@{${muumi.url}}"/>
    </div>
 </div>
+   <!-- IF IMG URL IS ''(=LEFT EMPTY BY USER) -->
 <div th:if="${muumi.url==''}">
    <div><img src="https://webstore.iea.org/content/images/thumbs/default-image_450.png"/>
    </div>
 </div>
+   <!-- IF IMG URL IS NULL(LEFT EMPTY IN DATABASE) -->
 <div th:if="${muumi.url==NULL}">
    <div><img src="https://webstore.iea.org/content/images/thumbs/default-image_450.png"/></div>
 </div>
