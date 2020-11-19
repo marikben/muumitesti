@@ -12,11 +12,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <form th:action="@{/add}"method="get"><input type="submit"value="Lisää uusi"/></form></div>
 <main>
 <h3>Muumiastiasto</h3>
-<div class="otsikot">
-<p>Kuva</p>
-<p>Nimi</p>
-<p>Kategoria</p>
-</div>
+
 <div class="astiat">
 <tr th:each= "muumi : ${muumis}"><br>
 <!-- IF AN URL FOR AN IMAGE EXISTS AND IS NEITHER '' OR NULL -->
@@ -33,7 +29,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <div th:if="${muumi.url==NULL}">
    <div><img src="https://webstore.iea.org/content/images/thumbs/default-image_450.png"/></div>
 </div>
-<td  th:text="${  muumi.Nimi}"></td>
+<td  th:text="${  muumi.Nimi}+','"></td>
 <td th:text="${muumi.kategoria}"></td>
 <div class="edit"><a th:href="@{/edit/{id}(id=${muumi.id})}">Muokkaa</a></div>
 <td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${muumi.id})}">Poista</a></td>
