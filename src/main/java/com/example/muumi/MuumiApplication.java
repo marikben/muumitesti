@@ -27,7 +27,6 @@ public class MuumiApplication {
 		krepository.save(new Kategoriat("Muki"));
 		krepository.save(new Kategoriat("Lautanen"));
 		krepository.save(new Kategoriat("Kulho"));
-		mrepository.save(new Muumi("Mörkö", "https://iittala.scene7.com/is/image/iittala/?qlt=90&op_usm=1.2,1,0,0&src=is{iittala/arabia-moomin-bowl-15_cm-groke?size=3800,3800&wid=2000&hei=2000&scl=2.0}&extend=100,100,100,100"));
 	};
 	
 }
