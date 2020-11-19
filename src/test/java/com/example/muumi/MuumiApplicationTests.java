@@ -7,10 +7,10 @@ package com.example.muumi;
 
 //@RunWith(SpringRunner.class)
 //@SpringBootTest
-class MuumiApplicationTests {
+//class MuumiApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+	//@Test
+	//void contextLoads() {
+	//}
 
-}
+//}
