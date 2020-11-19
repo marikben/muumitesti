@@ -21,12 +21,7 @@ public class Muumi {
 	@ManyToOne
 	@JoinColumn(name="kategoria")
 	private Kategoriat kategoria;
-	public Kategoriat getKategoria() {
-		return kategoria;
-	}
-	public void setKategoria(Kategoriat kategoria) {
-		this.kategoria = kategoria;
-	}
+	
 	public Muumi() {}
 	public Muumi(String Nimi) {
 		this.Nimi = Nimi;
@@ -40,6 +35,7 @@ public class Muumi {
 		this.kategoria = kat;
 		this.url = url;
 	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -52,6 +48,14 @@ public class Muumi {
 	public void setNimi(String nimi) {
 		this.Nimi = nimi;
 	}
+	
+	public Kategoriat getKategoria() {
+		return kategoria;
+	}
+	public void setKategoria(Kategoriat kategoria) {
+		this.kategoria = kategoria;
+	}
+
 	public String getUrl() {
 		return url;
 	}
