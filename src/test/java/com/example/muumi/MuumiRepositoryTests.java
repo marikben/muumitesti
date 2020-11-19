@@ -14,6 +14,7 @@ import com.example.muumi.model.MuumiRepository;
 import com.example.muumi.web.MuumiController;
 
 public class MuumiRepositoryTests {
+	//Tests are commented out because of Heroku
 	@Autowired 
 	private MuumiController mcontroller;
 	@Autowired
