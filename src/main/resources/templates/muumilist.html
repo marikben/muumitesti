@@ -20,7 +20,18 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <tr th:each= "muumi : ${muumis}">
 
-<div class="grid-item"><img th:src="@{${muumi.url}}"/></div>
+<!-- IF CUSTOMER IS ANONYMOUS -->
+<div th:if="${muumi.url!='' and muumi.url!=NULL}">
+   <div class="grid-item"><img th:src="@{${muumi.url}}"/></div>
+   </div>
+<div th:if="${muumi.url==''}">
+  	<div class="grid-item"><img src="https://webstore.iea.org/content/images/thumbs/default-image_450.png"/>
+   </div>
+</div>
+<div th:if="${muumi.url==NULL}">
+   <div class="grid-item"><img src="https://webstore.iea.org/content/images/thumbs/default-image_450.png"/></div>
+</div>
+
 <div class="grid-item"><td th:text="${muumi.Nimi}"></td></div>
 <div class="grid-item"><td th:text="${muumi.kategoria}"></td></div>
 <div class="grid-item"><a th:href="@{/edit/{id}(id=${muumi.id})}">Muokkaa</a>
