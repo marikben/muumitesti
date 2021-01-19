@@ -8,32 +8,25 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 </head>
 <body>
 <h4 th:inline="text">Hei [[${#httpServletRequest.remoteUser}]]!</h4>
-<div class"topnav"><form th:action="@{/logout}"method="post"><input type="submit"value="Kirjaudu ulos"/></form>
-<form th:action="@{/add}"method="get"><input type="submit"value="Lisää uusi"/></form></div>
+<div class="topnav"><form th:action="@{/logout}"method="post"><input type="submit"value="Kirjaudu ulos"/></form>
 <main>
 <h3>Muumiastiasto</h3>
+<form th:action="@{/add}"method="get"><input type="submit"value="Lisää uusi"/></form>
+<div class="grid-container">
+<div class="grid-item"><h4>Kuva</h4></div>
+<div class="grid-item"><h4>Nimi</h4></div>
+<div class="grid-item"><h4>Kategoria</h4></div>
+<div class="grid-item"><h4>Valinnat</h4></div>
 
-<div class="astiat">
-<tr th:each= "muumi : ${muumis}"><br>
-<!-- IF AN URL FOR AN IMAGE EXISTS AND IS NEITHER '' OR NULL -->
-<div th:if="${muumi.url!='' and muumi.url!=NULL}">
-   <div><img th:src="@{${muumi.url}}"/>
-   </div>
-</div>
-   <!-- IF IMG URL IS ''(=LEFT EMPTY BY USER) -->
-<div th:if="${muumi.url==''}">
-   <div><img src="https://webstore.iea.org/content/images/thumbs/default-image_450.png"/>
-   </div>
-</div>
-   <!-- IF IMG URL IS NULL(LEFT EMPTY IN DATABASE) -->
-<div th:if="${muumi.url==NULL}">
-   <div><img src="https://webstore.iea.org/content/images/thumbs/default-image_450.png"/></div>
-</div>
-<td  th:text="${  muumi.Nimi}+','"></td>
-<td th:text="${muumi.kategoria}"></td>
-<div class="edit"><a th:href="@{/edit/{id}(id=${muumi.id})}">Muokkaa</a></div>
+<tr th:each= "muumi : ${muumis}">
+
+<div class="grid-item"><img th:src="@{${muumi.url}}"/></div>
+<div class="grid-item"><td th:text="${muumi.Nimi}"></td></div>
+<div class="grid-item"><td th:text="${muumi.kategoria}"></td></div>
+<div class="grid-item"><a th:href="@{/edit/{id}(id=${muumi.id})}">Muokkaa</a>
 <td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${muumi.id})}">Poista</a></td>
-</tr><br>
+</div>
+</div>
 </div>
 
 </main>
